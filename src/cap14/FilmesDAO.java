@@ -17,7 +17,6 @@ public class FilmesDAO {
 	public FilmesDAO() {
 		bd = new BD();
 		filme = new Filme();
-		//java.sql.Date date1 = new 
 	}
 	public boolean localizar() {
 		sql = "select * from filmes where codigo = ?";
@@ -40,15 +39,16 @@ public class FilmesDAO {
 			men = "Operacao realizada com sucesso!";
 			try {
 				if(operacao == INCLUSAO) {
-					long timeInMiliSeconds = filme.getProdutora().getTime();
+					
+					
 					sql = "insert into filmes values(?,?,?,?,?)";
 					statement = bd.connection.prepareStatement(sql);
 					statement.setString(1, filme.getCodigo());
 					statement.setString(2, filme.getTitulo());
 					statement.setString(3, filme.getGenero());
 					statement.setString(4, filme.getProdutora());
-					//statement.setString(5, filme.getDataCompra());
-					statement.setDate(4, new java.sql.Date(filme.getDataCompra().getTime()));
+					statement.setString(5, filme.getDataCompra());
+					//statement.setDate(4, new java.sql.Date(filme.getDataCompra().getTime()));
 				} else if(operacao == ALTERACAO) {
 					sql = "update filmes set titulo = ?, genero = ?, produtora = ?,"
 							+ "dataCompra = ? where codigo = ?";
