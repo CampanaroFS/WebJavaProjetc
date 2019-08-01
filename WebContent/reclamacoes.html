@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Formulario</title>
+</head>
+<body>
+	<font size=6 face="Verdana">Portal do cidadão - problemas no bairro</font>
+	<form action="Glog.jsp" method="post">
+	<br>
+		Informe o endereço:<input type="text" size='20' name="p_end"><br>
+		<br>
+		Tipo de problema: <select name="p_prob">
+							<option value='buraco'>Buraco</option>
+							<option value='praca'>Praça</option>
+							<option value='policiamento'>Policiamento</option>
+							<option value='posto'>Posto de Saúde</option> 
+						</select>
+		<br>
+		<br>
+		Relate o problema:<br>
+		<textarea name="p_recl" rows="5" cols='50' >Escreva aqui sua reclamação</textarea><br><br>
+		<input type="submit" value="Enviar">
+		<input type="reset" value="Limpar">
+	</form>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Cadastramento de Filmes</title>
+</head>
+<body>
+	<form action="http://localhost:8080/ServletFilmesInclusao" method="get">
+		<b>Entre com os dados do filme:</b><br>
+		<table>
+			<tr>
+				<td><b>Código:</b></td><td><input type="text" size="5" name="p_codigo"></td>
+			</tr>
+			<tr>
+				<td><b>Titulo:</b></td><td><input type="text" size="40" name="p_titulo"></td>
+			</tr>
+			<tr>
+				<td><b>Gênero:</b></td><td><input type="text" size="15" name="p_genero"></td>
+			</tr>
+			<tr>
+				<td><b>Produtora:</b></td><td><input type="text" size="25" name="p_produtora"></td>
+			</tr>
+			<tr>
+				<td><b>Data da Compra:</b></td><td><input type="text" size="10" name="p_data"></td>
+			</tr>
+		</table>
+		<br>
+		<input type=submit value="Salvar">
+		<input type=reset value="Limpar">
+	</form>
+</body>
+</html>
