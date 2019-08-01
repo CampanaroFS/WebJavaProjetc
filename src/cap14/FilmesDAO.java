@@ -48,7 +48,6 @@ public class FilmesDAO {
 					statement.setString(3, filme.getGenero());
 					statement.setString(4, filme.getProdutora());
 					statement.setString(5, filme.getDataCompra());
-					//statement.setDate(4, new java.sql.Date(filme.getDataCompra().getTime()));
 				} else if(operacao == ALTERACAO) {
 					sql = "update filmes set titulo = ?, genero = ?, produtora = ?,"
 							+ "dataCompra = ? where codigo = ?";

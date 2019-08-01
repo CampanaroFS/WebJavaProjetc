@@ -35,8 +35,6 @@ public class ServletFilmesInclusao extends HttpServlet {
 		out.println("<body>");
 		FilmesDAO filmes = new FilmesDAO();
 		filmes.bd.getConnection();
-		//String dataRecebida = ; //valor recebido do arquivo html
-		//String dateFormat = ano + mes + dia; //variavel com valores a ser inserido no bd
 		filmes.filme.setCodigo(request.getParameter("p_codigo"));
 		filmes.filme.setTitulo(request.getParameter("p_titulo"));
 		filmes.filme.setGenero(request.getParameter("p_genero"));
