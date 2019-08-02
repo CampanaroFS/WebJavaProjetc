@@ -3,6 +3,9 @@ package cap14;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 public class FilmesDAO {
 	public Filme filme;
 	public BD bd;
@@ -35,19 +38,23 @@ public class FilmesDAO {
 			return false;
 		}
 	}
-		public String atualizar(int operacao) {
+		public String atualizar(int operacao) throws ParseException {
 			men = "Operacao realizada com sucesso!";
 			try {
 				if(operacao == INCLUSAO) {
-					
-					
+					String data2 = filme.getDataCompra();
+					DateFormat dtf = new SimpleDateFormat("yyyy-MM-dd");
+					java.util.Date date1 = dtf.parse(data2);
+					long milliSeconds = date1.getTime();
+					java.sql.Date date3 = new java.sql.Date(milliSeconds);
 					sql = "insert into filmes values(?,?,?,?,?)";
 					statement = bd.connection.prepareStatement(sql);
 					statement.setString(1, filme.getCodigo());
 					statement.setString(2, filme.getTitulo());
 					statement.setString(3, filme.getGenero());
 					statement.setString(4, filme.getProdutora());
-					statement.setString(5, filme.getDataCompra());
+					//statement.setString(5, filme.getDataCompra());
+					statement.setDate(5, date3);
 				} else if(operacao == ALTERACAO) {
 					sql = "update filmes set titulo = ?, genero = ?, produtora = ?,"
 							+ "dataCompra = ? where codigo = ?";

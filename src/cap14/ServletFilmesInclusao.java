@@ -40,7 +40,13 @@ public class ServletFilmesInclusao extends HttpServlet {
 		filmes.filme.setGenero(request.getParameter("p_genero"));
 		filmes.filme.setProdutora(request.getParameter("p_produtora"));
 		filmes.filme.setDataCompra(request.getParameter("p_data"));
-		String retorno = filmes.atualizar(FilmesDAO.INCLUSAO);
+		String retorno = "";
+		try {
+			retorno = filmes.atualizar(FilmesDAO.INCLUSAO);
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		filmes.bd.close();
 		out.println("<b>" + retorno + "</b>");
 		out.println("<br><input type='button' value='voltar' onclick='history.go(-1)'>");
